@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2024 by anonymous (http://jsbin.com/nakuredipa/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+//Variables útiles 
+var precio_base = 1000;
+var edad_18 = 0.2; // 20%
+var edad_25 = 0.3; // 30%
+var edad_50 = 0.5; // 50%
+var casado_18 = 0.1; // 10%
+var casado_25 = 0.2; // 20%
+var casado_50 = 0.3; // 30%
+var hijos_recargo = 0.2; // 20%
+var recargo_total = 0;
+
+//Mensajes de alerta para ingresar datos 
+var nombre = prompt("¿Cuál es su nombre?");
+var edad = parseInt(prompt("Ingrese su edad en números"));
+var casado = prompt("¿Está casado/a? (SI/NO)").toUpperCase();
+var edad_conyuge = 0;
+
+if (casado === "SI") {
+  edad_conyuge = parseInt(prompt("¿Qué edad tiene su esposo/a?"));
+}
+
+var hijos = prompt("¿Tiene hijos o hijas? (SI/NO)").toUpperCase();
+var cantidad_hijos = 0;
+
+if (hijos === "SI") {
+  cantidad_hijos = parseInt(prompt("¿Cuántos hijos tiene?"));
+}
+
+// Calculando recargo por edad del asegurado
+if (edad >= 18 && edad < 25) {
+  recargo_total += precio_base * edad_18;
+} else if (edad >= 25 && edad < 50) {
+  recargo_total += precio_base * edad_25;
+} else if (edad >= 50) {
+  recargo_total += precio_base * edad_50;
+}
+
+// Calculando recargo por edad del cónyuge
+if (casado === "SI") {
+  if (edad_conyuge >= 18 && edad_conyuge < 25) {
+    recargo_total += precio_base * casado_18;
+  } else if (edad_conyuge >= 25 && edad_conyuge < 50) {
+    recargo_total += precio_base * casado_25;
+  } else if (edad_conyuge >= 50) {
+    recargo_total += precio_base * casado_50;
+  }
+}
+
+// Calculando recargo por cantidad de hijos
+if (hijos === "SI") {
+  recargo_total += precio_base * hijos_recargo * cantidad_hijos;
+}
+
+// Calculando precio final
+var precio_final = precio_base + recargo_total;
+
+// Mostrando resultados
+alert("Para el asegurado " + nombre);
+alert("El recargo total será de: " + recargo_total);
+alert("El precio será de: " + precio_final);
+
+
+</script>
+</body>
+</html>

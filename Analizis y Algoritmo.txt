@@ -1,0 +1,29 @@
+## Requerimientos-Análisis del problema.
+
+Nombre de la empresa : TK-U
+
+Ubicacion: Ciudad Jedha 
+
+Problema:  Hay alta demanda de cotizaciones sin embargo, estas son hechas manualmente por lo que genera un atraso en las respuestas de posibles clientes/asegurados por consiguiente se pierden clientes. 
+
+############################Algoritmo #########################################
+
+La persona tiene que ser mayor de edad, NO PUEDE aplicar al seguro si es menor de edad.
+
+Si tiene plan base, revisar si se le pueden agregar recargos extras dependiendo de los siguientes puntos:
+
+-Edad, 
+
+-Estado Civil (aplicando el recargo al conyugue dependiendo la edad)
+
+-Depende de cuantos hijos tenga el asegurado. 
+
+Finalmente se calcularía por el precio base mas el costo de cada recargo por cada persona y adicionalmente el porcentaje sobre los hijos si los tuvieran. 
+
+Tipo de recargos:
+
+de 18 a 24 años es un 10% de recargo sobre precio base
+
+de 25 a 49 años es un 20% de recargo sobre el precio base
+
+de 50 años en adelante es un recargo de el 30% sobre el precio base y se aplica sobre el asegurado y conyugue
